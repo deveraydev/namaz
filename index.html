@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0e3a2f" />
+  <meta name="description" content="RÜKÛ — namaz vakitleri, kıble ve adım adım namaz rehberi." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" />
+  <title>RÜKÛ — Namaz Rehberi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">ر</div>
+        <div><strong>RÜKÛ</strong><span>Namaz Rehberi</span></div>
+      </div>
+      <nav class="side-nav" aria-label="Ana menü">
+        <button class="nav-item active" data-page="home"><span>⌂</span>Ana Sayfa</button>
+        <button class="nav-item" data-page="prayers"><span>☾</span>Namazlar</button>
+        <button class="nav-item" data-page="duas"><span>✦</span>Dualar</button>
+        <button class="nav-item" data-page="qibla"><span>🧭</span>Kıble</button>
+        <button class="nav-item" data-page="settings"><span>⚙</span>Ayarlar</button>
+      </nav>
+      <div class="sidebar-note">
+        <span class="tiny-dot"></span>
+        <p>Vakit motoru: Diyanet yöntemi • İçerik: Hanefî MVP</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">HUŞÛ • BİLGİ • REHBER</div>
+          <h1 id="pageTitle">Günün namazlarını kaçırma, adım adım ilerle.</h1>
+        </div>
+        <div class="top-actions">
+          <button class="location-pill" id="locationBtn" title="Konumu değiştir">⌖ <span id="locationLabel">İzmir</span></button>
+          <button class="profile-pill" id="profileBtn" aria-label="Profil">İ</button>
+        </div>
+      </header>
+
+      <section id="view" class="view" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobil menü">
+    <button data-page="home" class="active"><span>⌂</span><small>Ana</small></button>
+    <button data-page="prayers"><span>☾</span><small>Namaz</small></button>
+    <button data-page="qibla"><span>🧭</span><small>Kıble</small></button>
+    <button data-page="duas"><span>✦</span><small>Dualar</small></button>
+    <button data-page="settings"><span>⚙</span><small>Ayarlar</small></button>
+  </nav>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="Kapat">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  </script>
+</body>
+</html>
